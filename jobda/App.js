@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Main from './src/Main';
+import Kakao from './src/Kakao';
 import 'react-native-gesture-handler';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -42,7 +43,7 @@ function HomeTab({navigation}) {
         headerShown: false,
       }}>
       <Tab.Screen name="매칭 포지션" component={Main} />
-      <Tab.Screen name="매칭 대시보드" component={Main} />
+      <Tab.Screen name="매칭 대시보드" component={Kakao} />
       <Tab.Screen name="매칭 프로필" component={Main} />
     </Tab.Navigator>
   );
