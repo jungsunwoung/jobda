@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import Main from './src/Main';
 import 'react-native-gesture-handler';
 const Tab = createBottomTabNavigator();
@@ -14,28 +14,36 @@ function HomeTab({navigation}) {
       initialRouteName="HomeScreen"
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
-          let iconName;
-
           if (route.name === 'HomeScreen') {
-            iconName = focused ? 'ios-home-sharp' : 'ios-home-outline';
-            return <Ionicons name={iconName} size={25} color={color} />;
+            return (
+              <Image
+                source={'./icons/home.png'}
+                style={{width: 25, height: 25}}></Image>
+            );
           } else if (route.name === 'CommunityScreen') {
-            iconName = focused ? 'ios-people-sharp' : 'ios-people-outline';
-            return <Ionicons name={iconName} size={25} color={color} />;
-          } else if (route.name === 'Market') {
-            iconName = focused ? 'ios-cart-sharp' : 'ios-cart-outline';
-            return <Ionicons name={iconName} size={25} color={color} />;
+            return (
+              <Image
+                source={'./icons/dash.png'}
+                style={{width: 25, height: 25}}></Image>
+            );
+          } else if (route.name === 'Markets') {
+            return (
+              <Image
+                source={'./icons/profile.png'}
+                style={{width: 25, height: 25}}></Image>
+            );
           }
         },
       })}
-      tabBarOptions={{
-        activeTintColor: '#5cc27b',
+      screenOptions={{
+        activeTintColor: '#5cd27b',
         inactiveTintColor: '#5cc27b',
         showLabel: false,
+        headerShown: false,
       }}>
-      <Tab.Screen name="HomeScreen" component={Main} />
-      <Tab.Screen name="CommunityScreen" component={Main} />
-      <Tab.Screen name="Market" component={Main} />
+      <Tab.Screen name="매칭 포지션" component={Main} />
+      <Tab.Screen name="매칭 대시보드" component={Main} />
+      <Tab.Screen name="매칭 프로필" component={Main} />
     </Tab.Navigator>
   );
 }
@@ -43,14 +51,10 @@ function HomeTab({navigation}) {
 const App = ({navigation}) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeTab}
-          options={{
-            headerShown: false,
-          }}
-        />
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={HomeTab} />
+        <Stack.Screen name="Community" component={HomeTab} />
+        <Stack.Screen name="Hi" component={HomeTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );

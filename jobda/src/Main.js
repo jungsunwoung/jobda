@@ -8,8 +8,10 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 export default function Main({navigation}) {
+  const HEIGHT = Dimensions.get('window').height;
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -20,24 +22,31 @@ export default function Main({navigation}) {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            height: 50,
+            height: 60,
             width: '100%',
             paddingLeft: '4%',
             paddingRight: '4%',
+            borderBottomColor: '#D3D3d3',
+            borderBottomWidth: 0.7,
           }}>
           <View
             style={{
               height: 44,
               flexDirection: 'row',
-              paddingTop: 4,
+              paddingTop: 5,
+              paddingBottom: 5,
               justifyContent: 'flex-start',
               alignItems: 'center',
             }}>
-            <Text style={{fontSize: 24}}>
-              <Text style={{fontWeight: 'bold', color: '#5CC27B'}}>
-                My Page
-              </Text>
-            </Text>
+            <Image
+              style={{width: 80, height: 80}}
+              source={require('./icons/jobda.png')}
+              resizeMode="contain"
+            />
+            <Image
+              style={{width: 80, height: 80}}
+              source={require('./icons/text.png')}
+              resizeMode="contain"></Image>
           </View>
           <View
             style={{
@@ -46,12 +55,27 @@ export default function Main({navigation}) {
               alignItems: 'center',
             }}>
             <TouchableOpacity style={{marginLeft: 8}}>
-              {/* <Image source={require('./icon/setting.png')} /> */}
+              <Image
+                style={{width: 80, height: 80}}
+                source={require('./icons/bell.png')}
+                resizeMode="contain"></Image>
             </TouchableOpacity>
           </View>
         </View>
         <ScrollView style={{paddingTop: 27}}>
-          <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'flex-start',
+
+              marginRight: '4%',
+              marginLeft: '8%',
+              marginTop: 16,
+              marginBottom: HEIGHT * 0.025,
+            }}>
+            <Text>hi</Text>
+            <Text>hi</Text>
+            <Text>hi</Text>
             <Text>hi</Text>
           </View>
         </ScrollView>
