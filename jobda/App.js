@@ -25,9 +25,6 @@ function HomeTab({navigation}) {
           } else if (route.name === 'Market') {
             iconName = focused ? 'ios-cart-sharp' : 'ios-cart-outline';
             return <Ionicons name={iconName} size={25} color={color} />;
-          } else if (route.name === 'MyPageScreen') {
-            iconName = focused ? 'ios-person' : 'ios-person-outline';
-            return <Ionicons name={iconName} size={25} color={color} />;
           }
         },
       })}
@@ -39,7 +36,6 @@ function HomeTab({navigation}) {
       <Tab.Screen name="HomeScreen" component={Main} />
       <Tab.Screen name="CommunityScreen" component={Main} />
       <Tab.Screen name="Market" component={Main} />
-      <Tab.Screen name="MyPageScreen" component={Main} />
     </Tab.Navigator>
   );
 }
