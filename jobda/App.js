@@ -10,6 +10,15 @@ import 'react-native-gesture-handler';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+const linking = {
+  prefixes: ['kakao{caf98043b5bb75d044c4fafae300b339}://'],
+  config: {
+    screens: {
+      Main: 'kakaolink',
+    },
+  },
+};
+
 function HomeTab({navigation}) {
   return (
     <Tab.Navigator
@@ -28,7 +37,7 @@ function HomeTab({navigation}) {
             return (
               <Image
                 source={require('./src/icons/position_active.png')}
-                style={{width: 20, height: 20}}
+                style={{width: 30, height: 30}}
               />
             );
           },
@@ -42,7 +51,7 @@ function HomeTab({navigation}) {
             return (
               <Image
                 source={require('./src/icons/dashboard.png')}
-                style={{width: 20, height: 20}}
+                style={{width: 30, height: 30}}
               />
             );
           },
@@ -56,7 +65,7 @@ function HomeTab({navigation}) {
             return (
               <Image
                 source={require('./src/icons/profile.png')}
-                style={{width: 20, height: 20}}
+                style={{width: 30, height: 30}}
               />
             );
           },
@@ -68,7 +77,7 @@ function HomeTab({navigation}) {
 
 const App = ({navigation}) => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={HomeTab} />
         <Stack.Screen name="Community" component={HomeTab} />

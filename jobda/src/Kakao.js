@@ -32,7 +32,12 @@ export default function Main({navigation}) {
           {
             title: '결과 보러 가기',
             link: {
-              androidExecutionParams: [{key: 'key1', value: 'value1'}],
+              androidExecutionParams: [
+                {
+                  key: 'kakaolink',
+                  value: 'kakao{caf98043b5bb75d044c4fafae300b339}://',
+                },
+              ],
               iosExecutionParams: [
                 {key: 'key1', value: 'value1'},
                 {key: 'key2', value: 'value2'},
