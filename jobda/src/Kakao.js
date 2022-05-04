@@ -13,6 +13,7 @@ import {
 import KakaoShareLink from 'react-native-kakao-share-link';
 export default function Main({navigation}) {
   async function kakao() {
+    console.log('here');
     try {
       const response = await KakaoShareLink.sendFeed({
         content: {

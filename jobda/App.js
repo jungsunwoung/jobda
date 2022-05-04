@@ -1,4 +1,5 @@
 import React from 'react';
+import {Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -12,39 +13,55 @@ const Stack = createStackNavigator();
 function HomeTab({navigation}) {
   return (
     <Tab.Navigator
-      initialRouteName="HomeScreen"
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
-          if (route.name === 'HomeScreen') {
-            return (
-              <Image
-                source={'./icons/home.png'}
-                style={{width: 25, height: 25}}></Image>
-            );
-          } else if (route.name === 'CommunityScreen') {
-            return (
-              <Image
-                source={'./icons/dash.png'}
-                style={{width: 25, height: 25}}></Image>
-            );
-          } else if (route.name === 'Markets') {
-            return (
-              <Image
-                source={'./icons/profile.png'}
-                style={{width: 25, height: 25}}></Image>
-            );
-          }
-        },
-      })}
+      initialRouteName="매칭 포지션"
       screenOptions={{
-        activeTintColor: '#5cd27b',
-        inactiveTintColor: '#5cc27b',
         showLabel: false,
         headerShown: false,
+        tabBarActiveTintColor: '#5cd27b',
+        tabBarInactiveTintColor: '#080808',
       }}>
-      <Tab.Screen name="매칭 포지션" component={Main} />
-      <Tab.Screen name="매칭 대시보드" component={Kakao} />
-      <Tab.Screen name="매칭 프로필" component={Main} />
+      <Tab.Screen
+        name="매칭 포지션"
+        component={Main}
+        options={{
+          tabBarIcon: () => {
+            return (
+              <Image
+                source={require('./src/icons/position_active.png')}
+                style={{width: 20, height: 20}}
+              />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="매칭 대시보드"
+        component={Kakao}
+        options={{
+          tabBarIcon: () => {
+            return (
+              <Image
+                source={require('./src/icons/dashboard.png')}
+                style={{width: 20, height: 20}}
+              />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="매칭 프로필"
+        component={Main}
+        options={{
+          tabBarIcon: () => {
+            return (
+              <Image
+                source={require('./src/icons/profile.png')}
+                style={{width: 20, height: 20}}
+              />
+            );
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }
